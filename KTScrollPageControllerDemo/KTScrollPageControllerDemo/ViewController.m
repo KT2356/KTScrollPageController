@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "KTScrollPageController.h"
 
-@interface ViewController ()
+@interface ViewController ()<KTScrollPageDelegate>
 
 @end
 
@@ -33,16 +33,13 @@
         UIView *text3 = [[UIView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
         text3.backgroundColor = [UIColor greenColor];
         [viewArray[2] addSubview:text3];
-                                          
-                                          
     }];
-    
+    pageVC.delegate = self;
     [self.view addSubview:pageVC];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)KTScrollPageCurrentPageDidChanged:(NSInteger)currentPageIndex {
+    NSLog(@"%ld",(long)currentPageIndex);
 }
 
 @end

@@ -12,5 +12,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *seperatorView;
 
-- (void)showSeperatorLine:(BOOL)show;
 @end

@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="107" height="45"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-3c-7jA">
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-3c-7jA">
                         <rect key="frame" x="0.0" y="0.0" width="107" height="45"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -23,11 +23,11 @@
                         <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </label>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZt-wn-iv1">
-                        <rect key="frame" x="106" y="5" width="1" height="34"/>
+                        <rect key="frame" x="106" y="10" width="1" height="24"/>
                         <animations/>
                         <color key="backgroundColor" red="0.067880068690000003" green="0.42112447310000001" blue="0.91863952019999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="1" id="htb-bt-tgB"/>
+                            <constraint firstAttribute="width" constant="1" id="jf7-UD-aZB"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -37,19 +37,23 @@
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="xHf-3c-7jA" secondAttribute="trailing" id="2hM-4D-mcK"/>
+                <constraint firstAttribute="bottom" secondItem="xHf-3c-7jA" secondAttribute="bottom" id="3tt-KW-OCY"/>
                 <constraint firstItem="xHf-3c-7jA" firstAttribute="leading" secondItem="ymg-OS-lMp" secondAttribute="leading" id="CPn-75-eh7"/>
-                <constraint firstAttribute="bottom" secondItem="gZt-wn-iv1" secondAttribute="bottom" constant="6" id="TaS-P7-cCO"/>
+                <constraint firstItem="gZt-wn-iv1" firstAttribute="centerY" secondItem="ymg-OS-lMp" secondAttribute="centerY" id="Iec-TM-YGz"/>
+                <constraint firstItem="xHf-3c-7jA" firstAttribute="top" secondItem="ymg-OS-lMp" secondAttribute="top" id="MP0-wh-YxQ"/>
                 <constraint firstItem="xHf-3c-7jA" firstAttribute="top" secondItem="ymg-OS-lMp" secondAttribute="top" id="Ys4-bW-joE"/>
                 <constraint firstAttribute="trailing" secondItem="xHf-3c-7jA" secondAttribute="trailing" id="eoh-yJ-aWA"/>
+                <constraint firstAttribute="trailing" secondItem="gZt-wn-iv1" secondAttribute="trailing" id="gy2-dY-1um"/>
                 <constraint firstAttribute="bottom" secondItem="xHf-3c-7jA" secondAttribute="bottom" id="i7r-ia-mN8"/>
-                <constraint firstItem="gZt-wn-iv1" firstAttribute="top" secondItem="ymg-OS-lMp" secondAttribute="top" constant="5" id="jr3-ck-U7W"/>
-                <constraint firstAttribute="trailing" secondItem="gZt-wn-iv1" secondAttribute="trailing" id="pnx-gi-8UH"/>
+                <constraint firstItem="xHf-3c-7jA" firstAttribute="leading" secondItem="ymg-OS-lMp" secondAttribute="leading" id="nru-hd-9Ky"/>
+                <constraint firstItem="gZt-wn-iv1" firstAttribute="top" secondItem="ymg-OS-lMp" secondAttribute="top" constant="10" id="ylT-YV-mdm"/>
             </constraints>
             <connections>
                 <outlet property="seperatorView" destination="gZt-wn-iv1" id="ziH-OL-716"/>
                 <outlet property="titleLabel" destination="xHf-3c-7jA" id="YfK-nm-hop"/>
             </connections>
-            <point key="canvasLocation" x="350.5" y="334.5"/>
+            <point key="canvasLocation" x="602.5" y="556.5"/>
         </collectionViewCell>
     </objects>
 </document>

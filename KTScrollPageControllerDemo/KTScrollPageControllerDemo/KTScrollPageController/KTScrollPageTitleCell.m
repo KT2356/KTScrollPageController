@@ -9,8 +9,5 @@
 #import "KTScrollPageTitleCell.h"
 
 @implementation KTScrollPageTitleCell
-- (void)showSeperatorLine:(BOOL)show {
-    self.seperatorView.hidden = show ? NO : YES;
-}
 
 @end
