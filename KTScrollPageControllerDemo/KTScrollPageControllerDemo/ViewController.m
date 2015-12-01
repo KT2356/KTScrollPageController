@@ -18,9 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     KTScrollPageController *pageVC = [[KTScrollPageController alloc]
-                                      initWithFrame:CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, 300)
-                                      pageNumber:4
-                                      titleName:@[@"我的提问",@"哈哈哈哈",@"呵呵",@"呵呵"]
+                                      initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64)
+                                      titleName:@[@"我的提问",@"哈哈哈哈",@"呵呵"]
                                       setPageBlock:^(NSMutableArray *viewArray) {
                                           
         UIView *text = [[UIView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
@@ -35,11 +34,9 @@
         text3.backgroundColor = [UIColor greenColor];
         [viewArray[2] addSubview:text3];
                                           
-        UIView *text4 = [[UIView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
-        text4.backgroundColor = [UIColor greenColor];
-        [viewArray[3] addSubview:text4];
                                           
     }];
+    
     [self.view addSubview:pageVC];
 }
 

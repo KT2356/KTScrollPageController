@@ -14,13 +14,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="107" height="45"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-3c-7jA">
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-3c-7jA">
                         <rect key="frame" x="0.0" y="0.0" width="107" height="45"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="highlightedColor" red="1" green="0.71879957589999999" blue="0.27837598990000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
                         <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </label>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZt-wn-iv1">
@@ -50,7 +49,7 @@
                 <outlet property="seperatorView" destination="gZt-wn-iv1" id="ziH-OL-716"/>
                 <outlet property="titleLabel" destination="xHf-3c-7jA" id="YfK-nm-hop"/>
             </connections>
-            <point key="canvasLocation" x="227.5" y="243.5"/>
+            <point key="canvasLocation" x="350.5" y="334.5"/>
         </collectionViewCell>
     </objects>
 </document>

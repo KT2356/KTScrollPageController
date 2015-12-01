@@ -13,6 +13,12 @@
 @interface KTScrollPageController()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 {
     float _cellWidth;
+    UIColor *_titleColor;
+    UIColor *_seperatorColor;
+    UIColor * _titleHighLightColor;
+    UIColor *_titleUnderLineColor;
+    UIFont  *_titleFont;
+    BOOL    _showSeperator;
 }
 @property (nonatomic, strong) NSMutableArray *viewArray;
 @property (nonatomic, strong) UIView *titleView;
@@ -27,17 +33,17 @@
 @implementation KTScrollPageController
 
 
-
+#pragma mark - public methods
 - (instancetype)initWithFrame:(CGRect)frame
-                   pageNumber:(NSInteger)pageNumber
                    titleName :(NSArray *)titleArray
                  setPageBlock:(PageBolck) pageBlock {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setupInitialValue];
         self.titleArray = titleArray;
         [self setViewArray:self.viewArray
                  WithFrame:frame
-                pageNumber:pageNumber];
+                pageNumber:self.titleArray.count];
         pageBlock(self.viewArray);
         [self.titleView addSubview:self.titleCollectionView];
         [self.titleCollectionView addSubview:self.titleLineScrollView];
@@ -45,8 +51,45 @@
     return self;
 }
 
+- (void)refreshView {
+    [_titleCollectionView reloadData];
+}
+
+- (void)setSeperatorLineColor:(UIColor *)color
+                         show:(BOOL)needShownd{
+    _seperatorColor = color;
+    _showSeperator  = needShownd;
+}
+
+- (void)setTitleAttribute:(UIFont *)font
+                textColor:(UIColor *)textColor
+         highLightedColor:(UIColor *)highLightedColor {
+    _titleColor          = textColor;
+    _titleFont           = font;
+    _titleHighLightColor = highLightedColor;
+}
+
+- (void)setTitleUnderLineColor:(UIColor *)color {
+    _titleUnderLineColor = color;
+}
 
 
+#pragma mark - private methods
+- (void)setupInitialValue {
+    _seperatorColor      = [UIColor lightGrayColor];
+    _titleColor          = [UIColor blackColor];
+    _titleHighLightColor = [UIColor orangeColor];
+    _titleUnderLineColor = [UIColor orangeColor];
+    _titleFont           = [UIFont systemFontOfSize:16];
+    _showSeperator       = YES;
+}
+
+/**
+ *  @author KT, 2015-12-01 13:58:05
+ *
+ *  生成子视图
+ *
+ */
 - (void)setViewArray:(NSArray *)viewArray
            WithFrame:(CGRect)frame
           pageNumber:(NSInteger)pageNumber {
@@ -63,7 +106,6 @@
 }
 
 #pragma mark - UICollectionDelegate
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.titleArray.count;
 }
@@ -75,10 +117,14 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     KTScrollPageTitleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"KTScrollPageTitleCell" forIndexPath:indexPath];
     cell.titleLabel.text = self.titleArray[indexPath.row];
-    cell.highlighted = indexPath.row  == _selectedIndex ? YES : NO;
-    cell.seperatorView.hidden = indexPath.row == self.titleArray.count - 1 ? YES : NO;
+    cell.titleLabel.textColor = indexPath.row  == _selectedIndex ? _titleHighLightColor : _titleColor;
     
-    cell.seperatorView.backgroundColor = [UIColor redColor];
+    cell.seperatorView.backgroundColor   = _seperatorColor;
+    cell.seperatorView.hidden            = !_showSeperator;
+    if (_showSeperator) {
+        cell.seperatorView.hidden = indexPath.row == self.titleArray.count - 1 ? YES : NO;
+    }
+    cell.titleLabel.font                 = _titleFont;
     return cell;
 }
 
@@ -88,7 +134,6 @@
 
 - (void)scrollContentWithTitleTapped:(NSInteger)index {
     _selectedIndex = index;
-    
     [self.scrollView setContentOffset:CGPointMake(index * self.scrollView.bounds.size.width, 0) animated:YES];
     [self.titleLineScrollView setContentOffset:CGPointMake((self.titleArray.count - 1 - index) * _cellWidth, 0) animated:YES];
     [_titleCollectionView reloadData];
@@ -115,12 +160,12 @@
                                                                      kKTScrollPageTitleHight,
                                                                      self.bounds.size.width,
                                                                      self.bounds.size.height - kKTScrollPageTitleHight)];
-        _scrollView.backgroundColor = [UIColor clearColor];
-        _scrollView.pagingEnabled   = YES;
-        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.backgroundColor                = [UIColor clearColor];
+        _scrollView.pagingEnabled                  = YES;
+        _scrollView.showsVerticalScrollIndicator   = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.opaque = YES;
-        _scrollView.delegate = self;
+        _scrollView.opaque                         = YES;
+        _scrollView.delegate                       = self;
         [self addSubview:_scrollView];
     }
     return _scrollView;
@@ -141,9 +186,9 @@
         float titleWidth = self.bounds.size.width / self.titleArray.count;
         _titleLineScrollView.contentSize = CGSizeMake(titleWidth * self.viewArray.count * 2 - 1, 0);
         UIView *titleUnderLine = [[UIView alloc] initWithFrame:CGRectMake(titleWidth * (self.viewArray.count- 1) , _titleView.frame.origin.y, titleWidth, _titleLineScrollView.bounds.size.height)];
-        titleUnderLine.backgroundColor = [UIColor orangeColor];
+        titleUnderLine.backgroundColor                      = _titleUnderLineColor;
         _titleLineScrollView.showsHorizontalScrollIndicator = NO;
-        _titleLineScrollView.scrollEnabled = NO;
+        _titleLineScrollView.scrollEnabled                  = NO;
         [_titleLineScrollView setContentOffset:CGPointMake(titleWidth * (self.viewArray.count- 1) , 0)];
         [_titleLineScrollView addSubview:titleUnderLine];
     }
@@ -155,17 +200,17 @@
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
         layout.minimumInteritemSpacing = 0;
-        layout.minimumLineSpacing = 0;
+        layout.minimumLineSpacing      = 0;
         
         _titleCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, _titleView.frame.size.height) collectionViewLayout:layout];
 
          [_titleCollectionView registerNib:[UINib nibWithNibName:@"KTScrollPageTitleCell" bundle:nil] forCellWithReuseIdentifier:@"KTScrollPageTitleCell"];
         _cellWidth = _titleCollectionView.frame.size.width / self.titleArray.count;
-        _titleCollectionView.scrollEnabled = NO;
+        _titleCollectionView.scrollEnabled                  = NO;
         _titleCollectionView.showsHorizontalScrollIndicator = NO;
-        _titleCollectionView.delegate = self;
-        _titleCollectionView.dataSource = self;
-        _titleCollectionView.backgroundColor = [UIColor clearColor];
+        _titleCollectionView.delegate                       = self;
+        _titleCollectionView.dataSource                     = self;
+        _titleCollectionView.backgroundColor                = [UIColor clearColor];
     }
     return _titleCollectionView;
 }
