@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^PageBolck)(NSMutableArray *viewArray);
-@interface KTScrollPageController : UIScrollView
+@interface KTScrollPageController : UIView
+
 - (instancetype)initWithFrame:(CGRect)frame
                    pageNumber:(NSInteger)pageNumber
-                 setPageBlock:(PageBolck) pageBlock;
+                   titleName :(NSArray *)titleArray
+                 setPageBlock:(PageBolck)pageBlock;
 @end

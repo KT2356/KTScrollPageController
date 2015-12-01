@@ -13,7 +13,9 @@
 		6899E0171C0C134C0007E90F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6899E0151C0C134C0007E90F /* Main.storyboard */; };
 		6899E0191C0C134C0007E90F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6899E0181C0C134C0007E90F /* Assets.xcassets */; };
 		6899E01C1C0C134C0007E90F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6899E01A1C0C134C0007E90F /* LaunchScreen.storyboard */; };
-		6899E0261C0C138C0007E90F /* KTScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6899E0251C0C138C0007E90F /* KTScrollPageController.m */; };
+		6899E0331C0C536B0007E90F /* KTScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6899E0321C0C536B0007E90F /* KTScrollPageController.m */; };
+		6899E03B1C0D332B0007E90F /* KTScrollPageTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6899E03A1C0D332B0007E90F /* KTScrollPageTitleCell.m */; };
+		6899E03D1C0D390D0007E90F /* KTScrollPageTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6899E03C1C0D390D0007E90F /* KTScrollPageTitleCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +29,11 @@
 		6899E0181C0C134C0007E90F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6899E01B1C0C134C0007E90F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6899E01D1C0C134C0007E90F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6899E0241C0C138C0007E90F /* KTScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTScrollPageController.h; sourceTree = "<group>"; };
-		6899E0251C0C138C0007E90F /* KTScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTScrollPageController.m; sourceTree = "<group>"; };
+		6899E0311C0C53630007E90F /* KTScrollPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KTScrollPageController.h; sourceTree = "<group>"; };
+		6899E0321C0C536B0007E90F /* KTScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTScrollPageController.m; sourceTree = "<group>"; };
+		6899E0391C0D332B0007E90F /* KTScrollPageTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTScrollPageTitleCell.h; sourceTree = "<group>"; };
+		6899E03A1C0D332B0007E90F /* KTScrollPageTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTScrollPageTitleCell.m; sourceTree = "<group>"; };
+		6899E03C1C0D390D0007E90F /* KTScrollPageTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KTScrollPageTitleCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +91,11 @@
 		6899E0231C0C13690007E90F /* KTScrollPageController */ = {
 			isa = PBXGroup;
 			children = (
-				6899E0241C0C138C0007E90F /* KTScrollPageController.h */,
-				6899E0251C0C138C0007E90F /* KTScrollPageController.m */,
+				6899E0311C0C53630007E90F /* KTScrollPageController.h */,
+				6899E0321C0C536B0007E90F /* KTScrollPageController.m */,
+				6899E0391C0D332B0007E90F /* KTScrollPageTitleCell.h */,
+				6899E03A1C0D332B0007E90F /* KTScrollPageTitleCell.m */,
+				6899E03C1C0D390D0007E90F /* KTScrollPageTitleCell.xib */,
 			);
 			path = KTScrollPageController;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 			files = (
 				6899E01C1C0C134C0007E90F /* LaunchScreen.storyboard in Resources */,
 				6899E0191C0C134C0007E90F /* Assets.xcassets in Resources */,
+				6899E03D1C0D390D0007E90F /* KTScrollPageTitleCell.xib in Resources */,
 				6899E0171C0C134C0007E90F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,9 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6899E0331C0C536B0007E90F /* KTScrollPageController.m in Sources */,
 				6899E0141C0C134C0007E90F /* ViewController.m in Sources */,
+				6899E03B1C0D332B0007E90F /* KTScrollPageTitleCell.m in Sources */,
 				6899E0111C0C134C0007E90F /* AppDelegate.m in Sources */,
-				6899E0261C0C138C0007E90F /* KTScrollPageController.m in Sources */,
 				6899E00E1C0C134C0007E90F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
