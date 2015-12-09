@@ -5,10 +5,10 @@
 //  Created by KT on 15/11/30.
 //  Copyright © 2015年 KT. All rights reserved.
 //
-#define kKTScrollPageTitleHight 40
-
 #import "KTScrollPageController.h"
 #import "KTScrollPageTitleCell.h"
+
+static const float kKTScrollPageTitleHight = 40;
 
 @interface KTScrollPageController()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 {
