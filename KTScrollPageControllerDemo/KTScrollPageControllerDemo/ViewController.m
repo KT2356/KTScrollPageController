@@ -18,7 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     KTScrollPageController *pageVC = [[KTScrollPageController alloc]
-                                      initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64)
+                                      initWithFrame:CGRectMake(0,
+                                                               0,
+                                                               [UIScreen mainScreen].bounds.size.width,
+                                                               [UIScreen mainScreen].bounds.size.height - 64)
                                       titleName:@[@"我的提问",@"哈哈哈哈",@"呵呵"]
                                       setPageBlock:^(NSMutableArray *viewArray) {
                                           

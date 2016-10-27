@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface KTScrollPageTitleCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIView *seperatorView;
 
+- (void)bindWithTitle:(NSString *)title showSeperator:(BOOL)show;
 @end
